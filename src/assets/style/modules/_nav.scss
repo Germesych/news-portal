@@ -1,0 +1,29 @@
+.nav-top{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .nav{}
+  .nav-list{
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-items{
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: var(--nav-color);
+    font-size: 18px;
+    &:last-child{
+      margin-right: 0;
+    }
+    a{
+      color: var(--color-grey);
+      &:hover{
+        color: var(--color-red);
+      }
+    }
+  }
+  .router-link-exact-active{
+    color: var(--color-red) !important;
+  }
+}
