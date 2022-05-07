@@ -10,6 +10,14 @@
           <app-top-news/>
         </section>
         <!-- /.section -->
+        <section class="section">
+          <app-hot-week/>
+        </section>
+        <!-- /.section -->
+        <section class="section">
+          <app-more-news/>
+        </section>
+        <!-- /.section -->
       </div>
       <!-- /.content -->
       <div class="aside-blk">
@@ -27,8 +35,10 @@
 import AppLatestNews from "../components/App-latest-news";
 import AppTopNews from "../components/App-top-news";
 import AppAsideBlock from "../components/App-aside-block";
+import AppHotWeek from "../components/App-hot-week";
+import AppMoreNews from "../components/App-more-news";
 export default {
   name: 'Home-age',
-  components: {AppTopNews, AppLatestNews, AppAsideBlock},
+  components: {AppMoreNews, AppHotWeek, AppTopNews, AppLatestNews, AppAsideBlock},
 }
 </script>

@@ -10,6 +10,7 @@ q{
   quotes: "\00ab" "\00bb";
   font-style: italic;
   max-width: 450px;
+  line-height: var(--text-lh);
   overflow: hidden;
   &::before{
     content: '\201c';
@@ -31,11 +32,15 @@ q{
 .main{
   width: 100%;
   min-height: 100vh;
+  background: #fff;
 }
 .container{
   max-width: 1140px;
   padding: 0 20px;
   margin: 0 auto;
+}
+p{
+  line-height: var(--text-lh);
 }
 span{
   display: inline-block;
@@ -301,5 +306,21 @@ h6{
   margin-bottom: 30px;
   &:last-child{
     margin-bottom: 0;
+  }
+}
+.breadcrumbs-block{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 12px;
+  span{
+    display: flex;
+    align-items: center;
+    color: var(--color-gray);
+    font-size: 15px;
+    margin: 0 10px;
+  }
+  a{
+    color: var(--color-gray);
   }
 }

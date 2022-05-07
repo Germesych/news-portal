@@ -1,5 +1,6 @@
 .home{
   padding-bottom: 75px;
+
   .latest-news{
     .date{
       margin-bottom: 20px;
@@ -45,6 +46,94 @@
       max-width: 350px;
       width: 100%;
       height: 605px;
+    }
+  }
+
+  .hot-week{
+    max-width: 730px;
+    width: 100%;
+    .title-line{
+      margin-bottom: 20px;
+    }
+    .top-block{
+      background: var(--background-gray);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      margin-bottom: 5px;
+      .flex-block{
+        align-items: center;
+      }
+      .img-block{
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+        height: 210px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .content-block{
+        max-width: 290px;
+        .title{
+          margin-bottom: 10px;
+        }
+        p{
+          line-height: 1.24;
+        }
+      }
+    }
+    .block-row{
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 730px;
+      width: 100%;
+      background: var(--background-gray);
+      border-radius: var(--border-radius);
+      .row{
+        max-width: 330px;
+      }
+    }
+  }
+
+  .more-news{
+    max-width: 730px;
+    width: 100%;
+    .title-line{
+      margin-bottom: 30px;
+    }
+    .flex-block{
+      flex-wrap: wrap;
+    }
+    .card-new{
+      position: relative;
+      max-width: 350px;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 30px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      img{
+        margin-bottom: 20px;
+        width: 350px;
+        height: 242px;
+        border-radius: var(--border-radius);
+        object-fit: cover;
+      }
+      .title{}
+      .a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

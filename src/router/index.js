@@ -21,7 +21,7 @@ const routes = [
     component: SearchPage
   },
   {
-    path: '/article:id',
+    path: '/article',
     name: 'article',
     component: ArticlePage
   },
