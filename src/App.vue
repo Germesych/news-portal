@@ -1,19 +1,19 @@
 <template>
   <div class="main">
-    <app-top-header/>
+    <the-top-header/>
     <div class="container">
       <router-view/>
     </div>
     <!-- /.container -->
-    <app-footer/>
+    <the-footer/>
   </div>
   <!-- /.main -->
 </template>
 <script>
-import AppNav from "./components/App-nav";
-import AppTopHeader from "./components/App-top-header";
-import AppFooter from "./components/App-footer";
+import TheNav from "./components/TheNavBar";
+import TheTopHeader from "./components/TheTopHeader";
+import TheFooter from "./components/TheFooter";
 export default {
-  components: {AppFooter, AppTopHeader, AppNav}
+  components: {TheFooter, TheTopHeader, TheNav}
 }
 </script>

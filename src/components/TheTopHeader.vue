@@ -52,15 +52,15 @@
       </form>
     </div>
     <!-- /.header -->
-    <app-nav/>
+    <the-nav-bar/>
   </header>
   <!-- /.header -->
 </template>
 
 <script>
-import AppNav from "./App-nav";
+import TheNavBar from "./TheNavBar";
 export default {
-  name: "App-top-header",
-  components: {AppNav}
+  name: "The-top-header",
+  components: {TheNavBar}
 }
 </script>

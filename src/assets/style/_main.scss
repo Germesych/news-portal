@@ -293,6 +293,9 @@ h6{
   &:last-child{
     margin-bottom: 0;
   }
+  .title:nth-child(1){
+    text-transform: uppercase;
+  }
   .title{
     margin-bottom: 20px;
   }

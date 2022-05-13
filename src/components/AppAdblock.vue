@@ -1,16 +1,13 @@
 <template>
   <div class="adblock">
-    <h1>Ad Block</h1>
+    <h1>{{adblock}}</h1>
   </div>
   <!-- /.adblock -->
 </template>
 
 <script>
 export default {
-  name: "App-adblock"
+  name: "App-adblock",
+  props: ['adblock']
 }
 </script>
-
-<style scoped>
-
-</style>

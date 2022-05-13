@@ -71,7 +71,7 @@
 
 <script>
 export default {
-  name: "App-more-news"
+  name: "The-more-news"
 }
 </script>
 

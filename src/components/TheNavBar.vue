@@ -55,6 +55,6 @@
 
 <script>
 export default {
-  name: "App-nav"
+  name: "The-nav-bar"
 }
 </script>

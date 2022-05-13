@@ -1,21 +1,21 @@
 <template>
   <div class="home">
     <section class="section">
-      <app-latest-news/>
+      <the-latest-news/>
     </section>
 
     <div class="flex-blk">
       <div class="content">
         <section class="section">
-          <app-top-news/>
+          <the-top-news/>
         </section>
         <!-- /.section -->
         <section class="section">
-          <app-hot-week/>
+          <the-hot-week/>
         </section>
         <!-- /.section -->
         <section class="section">
-          <app-more-news/>
+          <the-more-news/>
         </section>
         <!-- /.section -->
       </div>
@@ -32,13 +32,13 @@
 
 <script>
 
-import AppLatestNews from "../components/App-latest-news";
-import AppTopNews from "../components/App-top-news";
-import AppAsideBlock from "../components/App-aside-block";
-import AppHotWeek from "../components/App-hot-week";
-import AppMoreNews from "../components/App-more-news";
+import TheLatestNews from "../components/home-page/TheLatestNews";
+import TheTopNews from "../components/home-page/TheTopNews";
+import AppAsideBlock from "../components/home-page/TheAsideBlock";
+import TheHotWeek from "../components/home-page/TheHotWeek";
+import TheMoreNews from "../components/home-page/TheMoreNews";
 export default {
   name: 'Home-age',
-  components: {AppMoreNews, AppHotWeek, AppTopNews, AppLatestNews, AppAsideBlock},
+  components: {TheMoreNews, TheHotWeek, TheTopNews, TheLatestNews, AppAsideBlock},
 }
 </script>

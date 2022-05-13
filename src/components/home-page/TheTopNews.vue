@@ -101,6 +101,6 @@
 
 <script>
 export default {
-  name: "App-top-news"
+  name: "The-top-news"
 }
 </script>

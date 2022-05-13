@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import AppAdblock from "../components/App-adblock";
+import AppAdblock from "../components/AppAdblock";
 export default {
   name: "Search-page",
   components: {AppAdblock}

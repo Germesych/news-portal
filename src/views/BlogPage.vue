@@ -120,13 +120,13 @@
 </template>
 
 <script>
-import AppTopHeader from "../components/App-top-header";
-import AppFooter from "../components/App-footer";
-import AppResentPost from "../components/App-resent-post";
-import AppAdblock from "../components/App-adblock";
+import TheTopHeader from "../components/TheTopHeader";
+import TheFooter from "../components/TheFooter";
+import AppResentPost from "../components/AppResentPost";
+import AppAdblock from "../components/AppAdblock";
 export default {
   name: "Blog-page",
-  components: {AppAdblock, AppResentPost, AppFooter, AppTopHeader}
+  components: {AppAdblock, AppResentPost, TheFooter, TheTopHeader}
 }
 </script>
 

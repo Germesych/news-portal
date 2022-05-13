@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import AppResentPost from "../components/App-resent-post";
-import AppAdblock from "../components/App-adblock";
-import AppRelatedPosts from "../components/App-related-posts";
+import AppResentPost from "../components/AppResentPost";
+import AppAdblock from "../components/AppAdblock";
+import AppRelatedPosts from "../components/article-page/AppRelatedPosts";
 export default {
   name: "Article-page",
   components: {AppRelatedPosts, AppAdblock, AppResentPost}
