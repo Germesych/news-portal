@@ -1,48 +1,15 @@
 <template>
   <div class="related-posts">
-    <h2 class="title">Related Posts</h2>
+    <h2 class="title">{{ title }}</h2>
     <!-- /.title -->
     <div class="block-row">
-      <div class="row">
+      <div class="row" v-for="item in posts" :key="item.id">
         <a href="#"></a>
-        <img src="@/assets/img/col.jpg" alt="" class="img">
+        <img :src="item.img" :alt="item.alt" class="img">
         <div class="content">
-          <div class="date-small">MAY 21, 2021</div>
+          <div class="date-small">{{item.date}}</div>
           <h3 class="title row-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-          </h3>
-        </div>
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <a href="#"></a>
-        <img src="@/assets/img/col.jpg" alt="" class="img">
-        <div class="content">
-          <div class="date-small">MAY 21, 2021</div>
-          <h3 class="title row-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-          </h3>
-        </div>
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <a href="#"></a>
-        <img src="@/assets/img/col.jpg" alt="" class="img">
-        <div class="content">
-          <div class="date-small">MAY 21, 2021</div>
-          <h3 class="title row-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-          </h3>
-        </div>
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <a href="#"></a>
-        <img src="@/assets/img/col.jpg" alt="" class="img">
-        <div class="content">
-          <div class="date-small">MAY 21, 2021</div>
-          <h3 class="title row-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+            {{item.title}}
           </h3>
         </div>
       </div>
@@ -55,6 +22,7 @@
 
 <script>
 export default {
-  name: "App-related-posts"
+  name: "App-related-posts",
+  props: ['posts', 'title'],
 }
 </script>
