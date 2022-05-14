@@ -13,23 +13,16 @@
     <div class="flex-block">
       <div class="wrap">
         <article class="article">
-          <div class="date-small">MAY 21, 2021</div>
+          <div class="date-small">{{article.date}}</div>
           <!-- /.data-small -->
           <h1 class="title">
-            Lorem ipsum dolor sit amet, consectetur elit Ut adipiscing elit
+            {{article.title}}
           </h1>
-          <img src="@/assets/img/col.jpg" alt="" class="article-img">
+          <div class="article-img" style="background: #9b9b9b">
+            <img :src="article.img" :alt="article.alt" class="">
+          </div>
           <!-- /.article-img -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.
-          </p>
-          <q>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <span class="author">Oswald Griffith</span>
-          </q>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.
-          </p>
+          <div v-html="article.content"></div>
           <div class="article-nav">
             <a href="" class="prev"><span>&lsaquo;</span> Previous article</a>
             <a href="" class="next">Next article  <span>&rsaquo;</span></a>
@@ -42,7 +35,9 @@
       <!-- /.wrap -->
       <aside class="aside">
         <app-resent-post/>
-        <app-adblock/>
+        <app-adblock
+        adblock="title adblock tutu..."
+        />
       </aside>
       <!-- /.aside -->
     </div>
@@ -57,6 +52,18 @@ import AppAdblock from "../components/AppAdblock";
 import AppRelatedPosts from "../components/article-page/AppRelatedPosts";
 export default {
   name: "Article-page",
-  components: {AppRelatedPosts, AppAdblock, AppResentPost}
+  components: {AppRelatedPosts, AppAdblock, AppResentPost},
+  data(){
+    return {
+      article: {
+        id: 1,
+        date: '14.05.2022',
+        title: 'Lorem ipsum dolor sit amet, consectetur elit Ut adipiscing elit consectetur elit Ut adipiscing elit',
+        img: require('@/assets/img/col.jpg'),
+        alt: 'article image',
+        content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>'
+      }
+    }
+  }
 }
 </script>

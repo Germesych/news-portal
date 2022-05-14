@@ -68,6 +68,18 @@ h5{
 h6{
   font-size: 12px;
 }
+.row-1{
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 1;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
 /* Две строки */
 .row-2{
   -ms-text-overflow: ellipsis;
@@ -89,6 +101,30 @@ h6{
   -ms-line-clamp: 3;
   -webkit-line-clamp: 3;
   line-clamp: 3;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+.row-4{
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 4;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  display: -webkit-box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+.row-5{
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 5;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
   display: -webkit-box;
   word-wrap: break-word;
   -webkit-box-orient: vertical;
@@ -243,6 +279,7 @@ h6{
 .title-line{
   position: relative;
   padding-bottom: 4px;
+  text-transform: uppercase;
   &::before{
     content: '';
     position: absolute;

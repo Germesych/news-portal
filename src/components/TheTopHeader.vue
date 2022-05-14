@@ -3,30 +3,30 @@
     <div class="top-header">
       <div class="container">
         <div class="date">
-          MAY 21, 2021
+          {{ date }}
         </div>
         <div class="news-slider">
-          <div class="news-slider__category">BUSINESS</div>
+          <div class="news-slider__category">{{news[iterationNews].category}}</div>
           <div class="wrap">
             <a href="#"></a>
             <div class="news-slider__img">
-              <img src="@/assets/img/top-slider.jpg" alt="news img">
+              <img :src="news[iterationNews].img" :alt="news[iterationNews].alt">
             </div>
             <div class="news-slider__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              {{news[iterationNews].title}}
             </div>
           </div>
           <!-- /.wrap -->
         </div>
         <!-- /.news-slider -->
         <div class="news-slider__nav">
-          <button class="btn prev">
+          <button class="btn prev" @click="prevNews">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="19" height="19" rx="0.5" stroke="#BEBEBE"/>
               <path d="M12.7054 15.2946C13.0947 14.9053 13.095 14.2743 12.7062 13.8846L8.83 10L12.7062 6.11538C13.095 5.72569 13.0947 5.09466 12.7054 4.70538C12.3158 4.31581 11.6842 4.31581 11.2946 4.70538L6.70711 9.29289C6.31658 9.68342 6.31658 10.3166 6.70711 10.7071L11.2946 15.2946C11.6842 15.6842 12.3158 15.6842 12.7054 15.2946Z" fill="#BEBEBE"/>
             </svg>
           </button>
-          <button class="btn next">
+          <button class="btn next" @click="nextNews">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="19" height="19" rx="0.5" stroke="#BEBEBE"/>
               <path d="M6.70462 15.2946C6.31534 14.9053 6.315 14.2743 6.70385 13.8846L10.58 10L6.70385 6.11538C6.315 5.72569 6.31534 5.09466 6.70462 4.70538C7.09419 4.31581 7.72581 4.31581 8.11538 4.70538L12.7029 9.29289C13.0934 9.68342 13.0934 10.3166 12.7029 10.7071L8.11538 15.2946C7.72581 15.6842 7.09419 15.6842 6.70462 15.2946Z" fill="#BEBEBE"/>
@@ -61,6 +61,61 @@
 import TheNavBar from "./TheNavBar";
 export default {
   name: "The-top-header",
-  components: {TheNavBar}
+  components: {TheNavBar},
+  data(){
+    return {
+      date: new Date().toLocaleDateString(),
+      news: [
+        {
+          id: 1,
+          title: 'News-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          category: 'business',
+          img: require('@/assets/img/top-slider.jpg'),
+          alt: 'news image'
+        },
+        {
+          id: 2,
+          title: 'News-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          category: 'tech',
+          img: require('@/assets/img/top-slider.jpg'),
+          alt: 'news image'
+        },
+        {
+          id: 3,
+          title: 'News-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          category: 'foods',
+          img: require('@/assets/img/top-slider.jpg'),
+          alt: 'news image'
+        },
+        {
+          id: 4,
+          title: 'News-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          category: 'politics',
+          img: require('@/assets/img/top-slider.jpg'),
+          alt: 'news image'
+        },
+        {
+          id: 5,
+          title: 'News-5 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          category: 'sport',
+          img: require('@/assets/img/top-slider.jpg'),
+          alt: 'news image'
+        }
+      ],
+      iterationNews: 0
+    }
+  },
+  methods:{
+    nextNews(){
+      if(this.iterationNews < (this.news.length - 2)){
+        this.iterationNews++
+      }
+    },
+    prevNews(){
+      if(this.iterationNews !== 0){
+        this.iterationNews--
+      }
+    }
+  }
 }
 </script>
