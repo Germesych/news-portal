@@ -1,7 +1,7 @@
 <template>
   <div class="blog">
     <div class="breadcrumbs-block">
-      <a href="/">Home </a> <span>&rsaquo;</span> <a href="/foods">Foods</a>
+      <a href="/">Home </a> <span>&rsaquo;</span> <span>{{$route.params.id}}</span>
     </div>
     <!-- /.breadcrumbs-block -->
     <div class="title">{{mainTitle}}</div>
@@ -43,7 +43,7 @@
       <aside class="aside">
         <app-resent-post/>
         <app-adblock
-        adblock="title-adblock"
+        :adblock="adblock"
         />
       </aside>
       <!-- /.assets -->
@@ -66,10 +66,11 @@ export default {
     return {
       mainTitle: 'foods',
       redMoreBtnText: 'red more',
+      adblock: `<img src="${require('@/assets/img/content/1.jpeg')}" alt="img"><span class="adblock-test">Adblock #1</span>`,
       article: [
         {
           id: 1,
-          img: require('@/assets/img/col.jpg'),
+          img: require('@/assets/img/content/9.jpeg'),
           alt: 'news image',
           date: '01.02.2022',
           title: '1-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -78,7 +79,7 @@ export default {
         },
         {
           id: 2,
-          img: require('@/assets/img/col.jpg'),
+          img: require('@/assets/img/content/1.jpeg'),
           alt: 'news image',
           date: '02.02.2022',
           title: '2-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -87,7 +88,7 @@ export default {
         },
         {
           id: 3,
-          img: require('@/assets/img/col.jpg'),
+          img: require('@/assets/img/content/4.jpeg'),
           alt: 'news image',
           date: '03.02.2022',
           title: '3-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -96,7 +97,7 @@ export default {
         },
         {
           id: 4,
-          img: require('@/assets/img/col.jpg'),
+          img: require('@/assets/img/content/7.jpeg'),
           alt: 'news image',
           date: '04.02.2022',
           title: '4-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -105,7 +106,7 @@ export default {
         },
         {
           id: 5,
-          img: require('@/assets/img/col.jpg'),
+          img: require('@/assets/img/content/12.jpeg'),
           alt: 'news image',
           date: '05.02.2022',
           title: '5-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -114,6 +115,6 @@ export default {
         }
       ]
     }
-  }
+  },
 }
 </script>

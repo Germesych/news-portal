@@ -39,7 +39,7 @@
       <aside class="aside">
         <app-resent-post/>
         <app-adblock
-            adblock="title adblock tutu..."
+            :adblock="adblock"
         />
       </aside>
       <!-- /.aside -->
@@ -59,11 +59,12 @@ export default {
   components: {AppRelatedPosts, AppAdblock, AppResentPost},
   data() {
     return {
+      adblock: `<img src="${require('@/assets/img/content/12.jpeg')}" alt="img"><span class="adblock-test">Adblock #1</span>`,
       article: {
         id: 1,
         date: '14.05.2022',
-        title: 'Lorem ipsum dolor sit amet, consectetur elit Ut adipiscing elit consectetur elit Ut adipiscing elit',
-        img: require('@/assets/img/col.jpg'),
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        img: require('@/assets/img/content/10.jpeg'),
         alt: 'article image',
         content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>'
       },
@@ -72,28 +73,28 @@ export default {
         {
           id: 1,
           date: '01.01.2019',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. ',
-          img: require('@/assets/img/col.jpg'),
+          title: 'Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          img: require('@/assets/img/content/2.jpeg'),
           alt: 'article image'
         },
         {
           id: 2,
           date: '05.01.2019',
-          title: '#2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. ',
-          img: require('@/assets/img/col.jpg'),
+          title: 'Sed eget augue tristique, ornare metus fringilla, blandit enim. Sed eget augue tristique, ornare metus fringilla, blandit enim.',
+          img: require('@/assets/img/content/4.jpeg'),
           alt: 'article image'
         }, {
           id: 3,
           date: '09.01.2019',
-          title: '#3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. ',
-          img: require('@/assets/img/col.jpg'),
+          title: 'Curabitur iaculis nisl sit amet congue sollicitudin. Curabitur iaculis nisl sit amet congue sollicitudin.',
+          img: require('@/assets/img/content/7.jpeg'),
           alt: 'article image'
         },
         {
           id: 4,
           date: '22.01.2019',
-          title: '#4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. ',
-          img: require('@/assets/img/col.jpg'),
+          title: 'Maecenas vel tellus ullamcorper, varius enim sed, euismod magna. Maecenas vel tellus ullamcorper, varius enim sed, euismod magna.',
+          img: require('@/assets/img/content/10.jpeg'),
           alt: 'article image'
         }
       ]

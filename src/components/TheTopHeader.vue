@@ -70,35 +70,35 @@ export default {
           id: 1,
           title: 'News-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           category: 'business',
-          img: require('@/assets/img/top-slider.jpg'),
+          img: require('@/assets/img/content/1.jpeg'),
           alt: 'news image'
         },
         {
           id: 2,
           title: 'News-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           category: 'tech',
-          img: require('@/assets/img/top-slider.jpg'),
+          img: require('@/assets/img/content/2.jpeg'),
           alt: 'news image'
         },
         {
           id: 3,
           title: 'News-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           category: 'foods',
-          img: require('@/assets/img/top-slider.jpg'),
+          img: require('@/assets/img/content/3.jpeg'),
           alt: 'news image'
         },
         {
           id: 4,
           title: 'News-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           category: 'politics',
-          img: require('@/assets/img/top-slider.jpg'),
+          img: require('@/assets/img/content/4.jpeg'),
           alt: 'news image'
         },
         {
           id: 5,
           title: 'News-5 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
           category: 'sport',
-          img: require('@/assets/img/top-slider.jpg'),
+          img: require('@/assets/img/content/5.jpeg'),
           alt: 'news image'
         }
       ],

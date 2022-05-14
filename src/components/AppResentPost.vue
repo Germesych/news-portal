@@ -18,31 +18,31 @@ export default {
       article: [
         {
           id: 1,
-          title: '#1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Praesent dignissim turpis tincidunt, euismod metus eu, bibendum nunc. Praesent dignissim turpis tincidunt, euismod metus eu, bibendum nunc.'
         },
         {
           id: 2,
-          title: '#2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Etiam id nulla ut velit ultrices aliquam. Etiam id nulla ut velit ultrices aliquam. Etiam id nulla ut velit ultrices aliquam.'
         },
         {
           id: 3,
-          title: '#3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Nunc scelerisque turpis at arcu interdum, sed tempor eros facilisis. Nunc scelerisque turpis at arcu interdum, sed tempor eros facilisis.'
         },
         {
           id: 4,
-          title: '#4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Quisque ut erat at justo mollis vehicula. Quisque ut erat at justo mollis vehicula. Quisque ut erat at justo mollis vehicula.'
         },
         {
           id: 5,
-          title: '#5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Nullam placerat felis non tellus fringilla congue. Nullam placerat felis non tellus fringilla congue. Nullam placerat felis non tellus fringilla congue.'
         },
         {
           id: 6,
-          title: '#6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Duis tempus urna sit amet lectus mollis tempus. Duis tempus urna sit amet lectus mollis tempus. Duis tempus urna sit amet lectus mollis tempus.'
         },
         {
           id: 7,
-          title: '#7 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. '
+          title: 'Praesent id tortor vitae erat dignissim pharetra. Praesent id tortor vitae erat dignissim pharetra. Praesent id tortor vitae erat dignissim pharetra.'
         }
       ]
     }

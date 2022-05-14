@@ -21,7 +21,7 @@
       </div>
       <!-- /.content -->
       <div class="aside-blk">
-        <app-aside-block/>
+        <the-aside-block/>
       </div>
       <!-- /.aside-blk -->
     </div>
@@ -34,11 +34,11 @@
 
 import TheLatestNews from "../components/home-page/TheLatestNews";
 import TheTopNews from "../components/home-page/TheTopNews";
-import AppAsideBlock from "../components/home-page/TheAsideBlock";
+import TheAsideBlock from "../components/home-page/TheAsideBlock";
 import TheHotWeek from "../components/home-page/TheHotWeek";
 import TheMoreNews from "../components/home-page/TheMoreNews";
 export default {
   name: 'Home-age',
-  components: {TheMoreNews, TheHotWeek, TheTopNews, TheLatestNews, AppAsideBlock},
+  components: {TheMoreNews, TheHotWeek, TheTopNews, TheLatestNews, TheAsideBlock},
 }
 </script>

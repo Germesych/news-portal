@@ -1,6 +1,6 @@
 <template>
   <div class="adblock">
-    <h1>{{adblock}}</h1>
+    <div v-html="adblock"></div>
   </div>
   <!-- /.adblock -->
 </template>
