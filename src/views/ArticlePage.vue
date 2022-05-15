@@ -53,6 +53,7 @@
 import AppResentPost from "../components/AppResentPost";
 import AppAdblock from "../components/AppAdblock";
 import AppRelatedPosts from "../components/article-page/AppRelatedPosts";
+import posts from "@/api/article"
 
 export default {
   name: "Article-page",
@@ -60,14 +61,7 @@ export default {
   data() {
     return {
       adblock: `<img src="${require('@/assets/img/content/12.jpeg')}" alt="img"><span class="adblock-test">Adblock #1</span>`,
-      article: {
-        id: 1,
-        date: '14.05.2022',
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        img: require('@/assets/img/content/10.jpeg'),
-        alt: 'article image',
-        content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>'
-      },
+      article: {},
       relatedTitle: 'Related Posts',
       relatedPosts: [
         {
@@ -99,6 +93,19 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    getPost(){
+      let id = this.$route.params.id
+      for(let i = 0; i < posts.length; i++){
+        if(Number(id) === Number(posts[i].id)){
+          return this.article = posts[i]
+        }
+      }
+    }
+  },
+  mounted() {
+    this.getPost()
   }
 }
 </script>

@@ -4,9 +4,15 @@
       RESENT POST
     </h2>
     <!-- /.title -->
-    <a href="#" class="post-link row-2" v-for="item in article" :key="item.id">
-      {{ item.title }}
-    </a>
+<!--    <a href="#" class="post-link row-2" v-for="item in article" :key="item.id">-->
+<!--      {{ item.title }}-->
+<!--    </a>-->
+    <router-link
+        class="post-link row-2"
+        :to="'/article/' + item.id"
+        v-for="item in article"
+        :key="item.id"
+    >{{ item.title }}</router-link>
   </div>
   <!-- /.resent-post -->
 </template>

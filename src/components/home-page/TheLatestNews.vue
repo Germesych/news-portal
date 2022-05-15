@@ -2,6 +2,10 @@
   <div class="latest-news">
     <div class="flex-col">
       <div class="col" v-for="item in article" :key="item.id">
+        <router-link
+            class="the-post-link"
+            :to="'/article/' + item.id"
+        />
         <span class="category">{{ item.category }}</span>
         <!-- /.category -->
         <img :src="item.img" :alt="item.alt">
@@ -80,7 +84,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

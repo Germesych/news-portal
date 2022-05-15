@@ -3,7 +3,9 @@
     <div class="top-block">
       <h2 class="title-line">{{ title }}</h2>
       <div class="flex-block">
-        <a href=""></a>
+        <router-link
+            to="/article/1"
+        />
         <div class="img-block">
           <span class="category">{{ topArticle.category }}</span>
           <img :src="topArticle.img" :alt="topArticle.alt">
@@ -25,7 +27,9 @@
     <!-- /.top_block -->
     <div class="block-row">
       <div class="row" v-for="item in article" :key="item.id">
-        <a href="#"></a>
+        <router-link
+            :to="'/article/' + item.id"
+        />
         <img :src="item.img" :alt="item.alt" class="img">
         <div class="content">
           <div class="date-small">{{item.date}}</div>

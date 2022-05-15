@@ -14,8 +14,13 @@
         <div class="card">
           <h2 class="title">{{ categoryTitle }}</h2>
           <div class="category-block">
-            <a :href="item.link" class="category-link" v-for="item in category"
-               :key="item.id">{{ item.nameCategory }}</a>
+            <router-link
+                :to="item.link"
+                class="category-link"
+                v-for="item in category"
+                :key="item.id"
+            >{{ item.nameCategory }}
+            </router-link>
           </div>
           <!-- /.category-block -->
         </div>
@@ -27,7 +32,7 @@
           </p>
           <form class="subscribe">
             <input type="text">
-            <button class="btn-red" type="submit">{{gretLatestNewsBtnText}}</button>
+            <button class="btn-red" type="submit">{{ gretLatestNewsBtnText }}</button>
           </form>
           <!-- /.subscribe -->
         </div>
@@ -49,42 +54,42 @@ export default {
         {
           id: 1,
           nameCategory: 'home',
-          link: '#!'
+          link: '/'
         },
         {
           id: 2,
           nameCategory: 'business',
-          link: '#!'
+          link: '/blog/business'
         },
         {
           id: 3,
           nameCategory: 'politics',
-          link: '#!'
+          link: '/blog/politics'
         },
         {
           id: 4,
           nameCategory: 'life style',
-          link: '#!'
+          link: '/blog/life-style'
         },
         {
           id: 5,
           nameCategory: 'culture',
-          link: '#!'
+          link: '/blog/culture'
         },
         {
           id: 6,
           nameCategory: 'tech',
-          link: '#!'
+          link: '/blog/tech'
         },
         {
           id: 7,
           nameCategory: 'sport',
-          link: '#!'
+          link: '/blog/sport'
         },
         {
           id: 8,
           nameCategory: 'foods',
-          link: '#!'
+          link: '/blog/foods'
         }
       ],
       aboutUs: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placerat ornare pharetra at nisl, urna dictum blandit et rhoncus. Scelerisque lorem aliquet sit egestas diam in.',

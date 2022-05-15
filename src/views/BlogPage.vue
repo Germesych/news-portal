@@ -1,13 +1,13 @@
 <template>
   <div class="blog">
     <div class="breadcrumbs-block">
-      <a href="/">Home </a> <span>&rsaquo;</span> <span>{{$route.params.id}}</span>
+      <a href="/">Home </a> <span>&rsaquo;</span> <span>{{ $route.params.id }}</span>
     </div>
     <!-- /.breadcrumbs-block -->
-    <div class="title">{{mainTitle}}</div>
+    <div class="title"> {{ $route.params.id }}</div>
     <div class="flex-block">
       <div class="blog-block">
-        <section class="blog-card" v-for="item in article" :key="item.id">
+        <section class="blog-card" v-for="item in loadingPosts" :key="item.id">
           <div class="wrap">
             <a href="#">
               <img :src="item.img" :alt="item.alt">
@@ -21,7 +21,8 @@
           <p class="post-text row-4">
             {{ item.shortText }}
           </p>
-          <a href="#" class="post-link">{{ redMoreBtnText }}</a>
+          <router-link class="post-link" :to="'/article/' + item.id">{{ redMoreBtnText }}</router-link>
+<!--          <a href="#" class="post-link">{{ redMoreBtnText }}</a>-->
         </section>
         <!-- /.blog-card -->
         <div class="pagination">
@@ -43,7 +44,7 @@
       <aside class="aside">
         <app-resent-post/>
         <app-adblock
-        :adblock="adblock"
+            :adblock="adblock"
         />
       </aside>
       <!-- /.assets -->
@@ -58,6 +59,7 @@ import TheTopHeader from "../components/TheTopHeader";
 import TheFooter from "../components/TheFooter";
 import AppResentPost from "../components/AppResentPost";
 import AppAdblock from "../components/AppAdblock";
+import article from "../api/article"
 
 export default {
   name: "Blog-page",
@@ -67,54 +69,23 @@ export default {
       mainTitle: 'foods',
       redMoreBtnText: 'red more',
       adblock: `<img src="${require('@/assets/img/content/1.jpeg')}" alt="img"><span class="adblock-test">Adblock #1</span>`,
-      article: [
-        {
-          id: 1,
-          img: require('@/assets/img/content/9.jpeg'),
-          alt: 'news image',
-          date: '01.02.2022',
-          title: '1-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          shortText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.',
-          link: '#'
-        },
-        {
-          id: 2,
-          img: require('@/assets/img/content/1.jpeg'),
-          alt: 'news image',
-          date: '02.02.2022',
-          title: '2-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          shortText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.',
-          link: '#'
-        },
-        {
-          id: 3,
-          img: require('@/assets/img/content/4.jpeg'),
-          alt: 'news image',
-          date: '03.02.2022',
-          title: '3-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          shortText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.',
-          link: '#'
-        },
-        {
-          id: 4,
-          img: require('@/assets/img/content/7.jpeg'),
-          alt: 'news image',
-          date: '04.02.2022',
-          title: '4-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          shortText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.',
-          link: '#'
-        },
-        {
-          id: 5,
-          img: require('@/assets/img/content/12.jpeg'),
-          alt: 'news image',
-          date: '05.02.2022',
-          title: '5-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          shortText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.',
-          link: '#'
-        }
-      ]
     }
+  },
+  computed: {
+    loadingPosts() {
+      let postsArr = []
+      for (let i = 0; i < article.length; i++) {
+        let category = this.$route.params.id.toUpperCase()
+        let articleCategory = article[i].category.toUpperCase()
+        if(postsArr.length > 4){
+          break
+        }
+        if(articleCategory === category){
+          postsArr.push(article[i])
+        }
+      }
+      return  postsArr
+    },
   },
 }
 </script>
