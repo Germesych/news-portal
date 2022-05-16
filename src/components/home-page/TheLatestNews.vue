@@ -26,61 +26,23 @@
 </template>
 
 <script>
+import posts from "@/api/article"
 export default {
   name: "The-latest-news",
   data(){
     return{
-      article: [
-        {
-          id: 1,
-          category: 'tech',
-          date: '01.07.2022',
-          img: require('@/assets/img/content/1.jpeg'),
-          alt: 'images',
-          title: 'Title-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        },
-        {
-          id: 2,
-          category: 'foods',
-          date: '02.07.2022',
-          img: require('@/assets/img/content/2.jpeg'),
-          alt: 'images',
-          title: 'Title-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        },
-        {
-          id: 3,
-          category: 'tech',
-          date: '03.07.2022',
-          img: require('@/assets/img/content/3.jpeg'),
-          alt: 'images',
-          title: 'Title-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        },
-        {
-          id: 4,
-          category: 'politic',
-          date: '04.07.2022',
-          img: require('@/assets/img/content/9.jpeg'),
-          alt: 'images',
-          title: 'Title-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        },
-        {
-          id: 5,
-          category: 'tech',
-          date: '05.07.2022',
-          img: require('@/assets/img/content/12.jpeg'),
-          alt: 'images',
-          title: 'Title-5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        },
-        {
-          id: 6,
-          category: 'business',
-          date: '06.07.2022',
-          img: require('@/assets/img/content/11.jpeg'),
-          alt: 'images',
-          title: 'Title-6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mor'
-        }
-      ]
+      article: []
     }
+  },
+  methods: {
+    getPosts(){
+      for(let i = 0; i < 6; i++){
+        this.article.push(posts[i])
+      }
+    }
+  },
+  mounted() {
+    this.getPosts()
   }
 }
 </script>

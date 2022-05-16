@@ -8,11 +8,13 @@
         <div class="news-slider">
           <div class="news-slider__category">{{news[iterationNews].category}}</div>
           <div class="wrap">
-            <a href="#"></a>
+            <router-link
+                :to="'/article/' + news[iterationNews].id"
+            />
             <div class="news-slider__img">
-              <img :src="news[iterationNews].img" :alt="news[iterationNews].alt">
+              <img :src="news[iterationNews].img" :alt="news[iterationNews].imgAlt">
             </div>
-            <div class="news-slider__text">
+            <div class="news-slider__text characters-length">
               {{news[iterationNews].title}}
             </div>
           </div>
@@ -42,8 +44,8 @@
       <div class="logo">
         <span class="color-black">1</span>NEWS
       </div>
-      <form class="search">
-        <input type="text" placeholder="Enter your keywords ">
+      <form class="search" @submit.prevent="searchPost" v-if="SwitchSearch">
+        <input v-model.trim="searchValue" type="text" placeholder="Enter your keywords ">
         <button class="btn" type="submit">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.60879 12.605L6.60121 11.8151L6.86851 11.5325C8.01786 12.5015 9.50346 13.0773 11.1134 13.0618C14.7032 13.0273 17.5851 10.0895 17.5507 6.4997C17.5162 2.90987 14.5784 0.0279368 10.9886 0.0624018C7.39875 0.0968668 4.51682 3.03467 4.55128 6.6245C4.56674 8.23443 5.17092 9.7087 6.16182 10.8392L5.88442 11.1119L5.09446 11.1195L0.152692 16.1672L1.65693 17.6428L6.60879 12.605ZM6.55119 6.6053C6.52729 4.11542 8.5179 2.08621 11.0078 2.06231C13.4977 2.0384 15.5269 4.02902 15.5508 6.5189C15.5747 9.00879 13.5841 11.038 11.0942 11.0619C8.6043 11.0858 6.57509 9.09519 6.55119 6.6053Z" fill="#F44336"/>
@@ -59,53 +61,83 @@
 
 <script>
 import TheNavBar from "./TheNavBar";
+import posts from "@/api/article"
 export default {
   name: "The-top-header",
   components: {TheNavBar},
   data(){
     return {
       date: new Date().toLocaleDateString(),
+      searchValue: '',
+      SwitchSearch: true,
+      iterationNews: 0,
       news: [
         {
           id: 1,
-          title: 'News-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          category: 'business',
           img: require('@/assets/img/content/1.jpeg'),
-          alt: 'news image'
+          date: '01.02.2020',
+          category: 'Tech',
+          imgAlt: 'article images',
+          title: 'Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
         },
         {
           id: 2,
-          title: 'News-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          category: 'tech',
           img: require('@/assets/img/content/2.jpeg'),
-          alt: 'news image'
+          date: '07.04.2021',
+          category: 'business',
+          imgAlt: 'article images',
+          title: 'Sed eget augue tristique, ornare metus fringilla, blandit enim. Sed eget augue tristique, ornare metus fringilla, blandit enim.',
+          content: '<p>Vivamus quis est bibendum, fermentum lacus id, facilisis turpis. Etiam porta mollis ipsum feugiat fringilla. Pellentesque lobortis aliquet neque non lacinia. Phasellus a mattis ipsum, sit amet dapibus erat. Ut mattis purus ac mauris imperdiet, in varius orci porttitor. Mauris finibus eros elit, ut sodales mauris imperdiet eget. Cras eleifend lorem in erat commodo, sit amet fringilla erat interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
         },
         {
           id: 3,
-          title: 'News-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          category: 'foods',
           img: require('@/assets/img/content/3.jpeg'),
-          alt: 'news image'
+          date: '21.02.2020',
+          category: 'politics',
+          imgAlt: 'article images',
+          title: 'Curabitur iaculis nisl sit amet congue sollicitudin. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          content: '<p>Nulla tincidunt enim erat, vitae venenatis lectus feugiat non. Mauris feugiat, ex sed luctus laoreet, velit felis iaculis elit, non condimentum enim orci non enim. Nam placerat augue a vestibulum vehicula. Donec vitae ligula risus. Nulla massa metus, vestibulum id tincidunt sed, posuere vitae ex. Pellentesque pretium nibh vel vehicula tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
         },
         {
           id: 4,
-          title: 'News-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          category: 'politics',
           img: require('@/assets/img/content/4.jpeg'),
-          alt: 'news image'
+          date: '09.07.2022',
+          category: 'life-style',
+          imgAlt: 'article images',
+          title: 'Maecenas vel tellus ullamcorper, varius enim sed, euismod magna. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          content: '<p>Donec vitae ligula risus. Nulla massa metus, vestibulum id tincidunt sed, posuere vitae ex. Pellentesque pretium nibh vel vehicula tincidunt. Fusce ultricies elementum dui, ut interdum lorem tristique vel. Donec neque purus, bibendum id elit vel, interdum efficitur tellus. Vestibulum iaculis scelerisque orci a elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
         },
         {
           id: 5,
-          title: 'News-5 Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          category: 'sport',
           img: require('@/assets/img/content/5.jpeg'),
-          alt: 'news image'
-        }
-      ],
-      iterationNews: 0
+          date: '05.05.2022',
+          category: 'foods',
+          imgAlt: 'article images',
+          title: 'Phasellus suscipit dolor in luctus fringilla. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          content: '<p>Aenean ac nulla quam. Nulla nec neque a odio commodo congue vel ut mauris. Quisque in suscipit ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent luctus pellentesque mattis. Maecenas porta lobortis risus viverra ultricies. Vivamus iaculis consectetur luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
+        },
+        {
+          id: 6,
+          img: require('@/assets/img/content/6.jpeg'),
+          date: '06.06.2021',
+          category: 'culture',
+          imgAlt: 'article images',
+          title: 'Sed interdum nunc ut nunc sodales tincidunt. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
+          content: '<p>Quisque a eros non nulla condimentum rutrum. Maecenas cursus fermentum auctor. Nam tincidunt pretium orci ut iaculis. Suspendisse risus libero, cursus eu interdum consequat, sollicitudin et justo. Maecenas vulputate tellus vitae nisl volutpat tincidunt. Sed tempus turpis arcu. Quisque porttitor ipsum posuere nisi condimentum luctus eget in nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p><q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="author">Oswald Griffith</span></q><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nulla lorem aliquam sem amet, leo sed. Non ac aliquet viverra pellentesque varius ac eleifend varius amet.</p>',
+        },
+      ]
     }
   },
   methods:{
+    postsGet(){
+      let arr = []
+      for(let i = 0; i < 6; i++){
+        arr.push(posts[i])
+      }
+      this.news.push(...arr)
+      console.log('Post= ', this.news)
+    },
     nextNews(){
       if(this.iterationNews < (this.news.length - 2)){
         this.iterationNews++
@@ -115,7 +147,17 @@ export default {
       if(this.iterationNews !== 0){
         this.iterationNews--
       }
-    }
+    },
+    searchPost(){
+      if(this.searchValue.length){
+        this.$router.push({ path: '/search', query: { value: this.searchValue } })
+        this.searchValue = ''
+      }
+    },
+  },
+  mounted() {
+    // Надо дорабатывать!
+    // this.postsGet()
   }
 }
 </script>

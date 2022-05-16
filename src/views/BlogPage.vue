@@ -9,9 +9,9 @@
       <div class="blog-block">
         <section class="blog-card" v-for="item in loadingPosts" :key="item.id">
           <div class="wrap">
-            <a href="#">
+            <router-link :to="'/article/' + item.id">
               <img :src="item.img" :alt="item.alt">
-            </a>
+            </router-link>
           </div>
           <!-- /.wrap -->
           <div class="date-small">{{ item.date }}</div>

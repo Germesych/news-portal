@@ -1,13 +1,11 @@
 <template>
   <div class="article-page">
     <div class="breadcrumbs-block">
-      <a href="/">Home</a>
+      <router-link to="/">Home</router-link>
       <span>&rsaquo;</span>
-      <a href="/blog/foods">Foods</a>
+      <router-link :to="'/blog/' + article.category">{{ article.category }}</router-link>
       <span>&rsaquo;</span>
-      <a href="/blog/foods/article">
-        Lorem ipsum dolor sit amet, consectetur elit Ut adipiscing elit
-      </a>
+      <span class="breadcrumbs-title characters-length ">{{ article.title }}</span>
     </div>
     <!-- /.breadcrumbs-block -->
     <div class="flex-block">
@@ -63,35 +61,14 @@ export default {
       adblock: `<img src="${require('@/assets/img/content/12.jpeg')}" alt="img"><span class="adblock-test">Adblock #1</span>`,
       article: {},
       relatedTitle: 'Related Posts',
-      relatedPosts: [
-        {
-          id: 1,
-          date: '01.01.2019',
-          title: 'Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero. Fusce congue mauris fermentum, pretium nibh nec, scelerisque libero.',
-          img: require('@/assets/img/content/2.jpeg'),
-          alt: 'article image'
-        },
-        {
-          id: 2,
-          date: '05.01.2019',
-          title: 'Sed eget augue tristique, ornare metus fringilla, blandit enim. Sed eget augue tristique, ornare metus fringilla, blandit enim.',
-          img: require('@/assets/img/content/4.jpeg'),
-          alt: 'article image'
-        }, {
-          id: 3,
-          date: '09.01.2019',
-          title: 'Curabitur iaculis nisl sit amet congue sollicitudin. Curabitur iaculis nisl sit amet congue sollicitudin.',
-          img: require('@/assets/img/content/7.jpeg'),
-          alt: 'article image'
-        },
-        {
-          id: 4,
-          date: '22.01.2019',
-          title: 'Maecenas vel tellus ullamcorper, varius enim sed, euismod magna. Maecenas vel tellus ullamcorper, varius enim sed, euismod magna.',
-          img: require('@/assets/img/content/10.jpeg'),
-          alt: 'article image'
-        }
-      ]
+      relatedPosts: []
+    }
+  },
+  watch: {
+    '$route' (to){
+      console.log(to.params.id)
+      this.getPost()
+      window.scrollTo(0, 0);
     }
   },
   methods: {
@@ -102,10 +79,17 @@ export default {
           return this.article = posts[i]
         }
       }
+    },
+    relatedPostsGet(){
+      for(let i = 5; i < 9; i++){
+        this.relatedPosts.push(posts[i])
+      }
     }
   },
   mounted() {
     this.getPost()
+    this.relatedPostsGet()
+    window.scrollTo(0, 0);
   }
 }
 </script>

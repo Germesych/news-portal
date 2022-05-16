@@ -68,6 +68,13 @@ h5{
 h6{
   font-size: 12px;
 }
+.characters-length {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
 .row-1{
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -387,7 +394,12 @@ h6{
   a{
     color: var(--color-gray);
   }
+  .breadcrumbs-title{
+    max-width: 350px;
+    width: 100%;
+  }
 }
+
 .the-post-link{
   position: absolute;
   top: 0;
