@@ -2,12 +2,36 @@
   <div class="top-news">
     <div class="title-blk">
       <div class="title-line">TOP NEWS</div>
-      <div class="filter-news">
-        <button class="btn btn-filter btn-filter__active" @click="filterAll">All</button>
-        <button class="btn btn-filter" @click="filterPolitics">POLITICS</button>
-        <button class="btn btn-filter" @click="filterLifeStyle">LIFE STYLE</button>
-        <button class="btn btn-filter" @click="filterAllFoods">FOODS</button>
-        <button class="btn btn-filter" @click="filterAllCulture">CULTURE</button>
+      <div class="filter-news" @click="filter">
+        <button
+            data-filer="all"
+            class="btn btn-filter btn-filter__active"
+            @click="filterAll"
+        >All</button>
+        <!-- /button -->
+        <button
+            data-filer="politics"
+            class="btn btn-filter"
+        >POLITICS</button>
+        <!-- /button -->
+        <button
+            data-filer="life-stile"
+            class="btn btn-filter"
+            @click="filterLifeStyle"
+        >LIFE STYLE</button>
+        <!-- /button -->
+        <button
+            data-filer="foods"
+            class="btn btn-filter"
+            @click="filterAllFoods"
+        >FOODS</button>
+        <!-- /button -->
+        <button
+            data-filer="culture"
+            class="btn btn-filter"
+            @click="filterAllCulture"
+        >CULTURE</button>
+        <!-- /button -->
       </div>
       <!-- /.filter-news -->
     </div>
@@ -43,10 +67,39 @@ export default {
     }
   },
   methods: {
-    filter(category) {
-      console.log()
+    filter(event) {
+      switch (event.target.dataset.filer){
+        case 'all':
+          this.filterAll()
+          this.filterActiveLink()
+          event.target.classList.add('btn-filter__active')
+          break
+        case 'politics':
+          this.filterGet('politics')
+          event.target.classList.add('btn-filter__active')
+          break
+        case 'life-stile':
+          this.filterGet('life-style')
+          event.target.classList.add('btn-filter__active')
+          break
+        case 'foods':
+          this.filterGet('foods')
+          event.target.classList.add('btn-filter__active')
+          break
+        case 'culture':
+          this.filterGet('culture')
+          event.target.classList.add('btn-filter__active')
+          break
+      }
     },
-
+    filterActiveLink(){
+      const btn = document.querySelectorAll('.btn-filter')
+      for(let i = 0; i < btn.length; i++){
+        if(btn[i].classList.contains('btn-filter__active')){
+          btn[i].classList.remove('btn-filter__active')
+        }
+      }
+    },
     filterAll() {
       let postsArr = []
       for (let i = 0; i < 7; i++) {
@@ -55,53 +108,12 @@ export default {
       this.posts = postsArr
     },
 
-    filterPolitics(event) {
+    filterGet(data) {
+      this.filterActiveLink()
       let postsArr = []
       for (let i = 0; i < article.length; i++) {
-        let category = event.target.innerText.toUpperCase()
-        let articleCategory = article[i].category.toUpperCase()
-        if(postsArr.length > 6){
-          break
-        }
-        if(articleCategory === category){
-          postsArr.push(article[i])
-        }
-      }
-      this.posts = postsArr
-    },
-    filterLifeStyle(event) {
-      let postsArr = []
-      for (let i = 0; i < article.length; i++) {
-        let category = 'life-style'.toUpperCase()
-        let articleCategory = article[i].category.toUpperCase()
-        if(postsArr.length > 6){
-          break
-        }
-        if(articleCategory === category){
-          postsArr.push(article[i])
-        }
-      }
-      this.posts = postsArr
-    },
-    filterAllFoods(event) {
-      let postsArr = []
-      for (let i = 0; i < article.length; i++) {
-        let category = event.target.innerText.toUpperCase()
-        let articleCategory = article[i].category.toUpperCase()
-        if(postsArr.length > 6){
-          break
-        }
-        if(articleCategory === category){
-          postsArr.push(article[i])
-        }
-      }
-      this.posts = postsArr
-    },
-    filterAllCulture(event) {
-      let postsArr = []
-      for (let i = 0; i < article.length; i++) {
-        let category = event.target.innerText.toUpperCase()
-        let articleCategory = article[i].category.toUpperCase()
+        let category = data.toLowerCase()
+        let articleCategory = article[i].category.toLowerCase()
         if(postsArr.length > 6){
           break
         }
