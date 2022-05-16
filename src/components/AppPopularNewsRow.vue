@@ -2,7 +2,7 @@
   <div class="content-blk popular-news">
     <h2 class="title">{{title}}</h2>
     <div class="block-row">
-      <div class="row" v-for="item in posts" :key="item.id">
+      <section class="row" v-for="item in posts" :key="item.id">
         <router-link
             :to="'/article/' + item.id"
         />
@@ -13,7 +13,7 @@
             {{item.title}}
           </h3>
         </div>
-      </div>
+      </section>
       <!-- /.row -->
     </div>
     <!-- /.block-row -->

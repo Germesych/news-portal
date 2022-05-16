@@ -1,7 +1,7 @@
 <template>
   <div class="hot-week">
-    <div class="top-block">
-      <h2 class="title-line">{{ title }}</h2>
+    <section class="top-block">
+      <div class="title-line">{{ title }}</div>
       <div class="flex-block">
         <router-link
             to="/article/1"
@@ -13,9 +13,9 @@
         <!-- /.img-block -->
         <div class="content-block">
           <div class="date-small">{{ topArticle.date }}</div>
-          <h3 class="title row-2">
+          <h1 class="title row-2">
             {{ topArticle.title }}
-          </h3>
+          </h1>
           <p class="row-5">
             {{ topArticle.shortText }}
           </p>
@@ -23,9 +23,9 @@
         <!-- /.content-block -->
       </div>
       <!-- /.flex-block -->
-    </div>
+    </section>
     <!-- /.top_block -->
-    <div class="block-row">
+    <section class="block-row">
       <div class="row" v-for="item in article" :key="item.id">
         <router-link
             :to="'/article/' + item.id"
@@ -33,12 +33,12 @@
         <img :src="item.img" :alt="item.alt" class="img">
         <div class="content">
           <div class="date-small">{{item.date}}</div>
-          <h3 class="title row-2">
+          <h1 class="title row-2">
             {{item.title}}
-          </h3>
+          </h1>
         </div>
       </div>
-    </div>
+    </section>
     <!-- /.footer-block -->
   </div>
   <!-- /.hot-week -->

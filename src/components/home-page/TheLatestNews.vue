@@ -1,7 +1,7 @@
 <template>
   <div class="latest-news">
     <div class="flex-col">
-      <div class="col" v-for="item in article" :key="item.id">
+      <section class="col" v-for="item in article" :key="item.id">
         <router-link
             class="the-post-link"
             :to="'/article/' + item.id"
@@ -11,13 +11,13 @@
         <img :src="item.img" :alt="item.alt">
         <div class="col__content">
           <div class="date">{{item.date}}</div>
-          <h2 class="col-title row-3">
+          <h1 class="col-title row-3">
             {{item.title}}
-          </h2>
+          </h1>
           <!-- /.col-title -->
         </div>
         <!-- /.col__content -->
-      </div>
+      </section>
       <!-- /.col -->
     </div>
     <!-- /.flex-col -->
