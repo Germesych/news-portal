@@ -36,11 +36,16 @@
   .search-result{
     .row{
       margin-bottom: 35px;
+      height: 400px;
       .title{
         margin-bottom: 15px;
         font-size: 24px;
       }
     }
+  }
+  .result-content{
+    height: 60px;
+    overflow: hidden;
   }
   .pagination{}
   .aside{

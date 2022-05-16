@@ -26,7 +26,7 @@
             <h1 class="title">
               {{ item.title }}
             </h1>
-            <div class="row-3" v-html="item.content"></div>
+            <div class="result-content row-3" v-html="item.content"></div>
           </div>
           <!-- /.row -->
           <div class="row" v-else>
