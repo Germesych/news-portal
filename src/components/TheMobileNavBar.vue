@@ -3,39 +3,39 @@
     <button class="btn burger-menu" @click="openMenu">
       &#9776;
     </button>
-    <div class="mobile-nav" v-if="statusMenu">
+    <div class="mobile-nav" v-if="statusMenu" @click="eventMenu">
       <button class="btn close" @click="closeMenu">&#10006;</button>
       <ul class="mobile-nav__list reset-ul">
         <li class="mobile-nav__items">
-          <router-link to="/">Home</router-link>
+          <router-link class="menu-link" to="/">Home</router-link>
         </li>
         <!-- /.nav-items-->
         <li class="mobile-nav__items">
-          <router-link to="/blog/tech">tech</router-link>
+          <router-link class="menu-link" to="/blog/tech">tech</router-link>
         </li>
         <!-- /.nav-items -->
         <li class="mobile-nav__items">
-          <router-link to="/blog/business">BUSINESS</router-link>
+          <router-link class="menu-link" to="/blog/business">BUSINESS</router-link>
         </li>
         <!-- /.nav-items-->
         <li class="mobile-nav__items">
-          <router-link to="/blog/politics">POLITICS</router-link>
+          <router-link class="menu-link" to="/blog/politics">POLITICS</router-link>
         </li>
         <!-- /.nav-items -->
         <li class="mobile-nav__items">
-          <router-link to="/blog/life-style">LIFE STYLE</router-link>
+          <router-link class="menu-link" to="/blog/life-style">LIFE STYLE</router-link>
         </li>
         <!-- /.nav-items -->
         <li class="mobile-nav__items">
-          <router-link to="/blog/foods">FOODS</router-link>
+          <router-link class="menu-link" to="/blog/foods">FOODS</router-link>
         </li>
         <!-- /.nav-items -->
         <li class="mobile-nav__items">
-          <router-link to="/blog/culture">CULTURE</router-link>
+          <router-link class="menu-link" to="/blog/culture">CULTURE</router-link>
         </li>
         <!-- /.nav-items -->
         <li class="mobile-nav__items">
-          <router-link to="/blog/sport">SPORT</router-link>
+          <router-link class="menu-link" to="/blog/sport">SPORT</router-link>
         </li>
         <!-- /.nav-items -->
       </ul>
@@ -60,6 +60,12 @@ export default {
     },
     openMenu(){
       this.statusMenu = true
+    },
+    eventMenu(event){
+      console.log(event.target)
+      if(event.target.classList.contains('menu-link')){
+        this.statusMenu = false
+      }
     }
   }
 }
