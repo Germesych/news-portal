@@ -2,6 +2,8 @@
   <header class="header">
     <div class="top-header">
       <div class="container">
+        <the-mobile-nav-bar/>
+        <!-- /.mobile-navbar -->
         <div class="date">
           {{ date }}
         </div>
@@ -62,9 +64,10 @@
 <script>
 import TheNavBar from "./TheNavBar";
 import posts from "@/api/article"
+import TheMobileNavBar from "./TheMobileNavBar";
 export default {
   name: "The-top-header",
-  components: {TheNavBar},
+  components: {TheMobileNavBar, TheNavBar},
   data(){
     return {
       date: new Date().toLocaleDateString(),

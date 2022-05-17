@@ -10,10 +10,6 @@
           <router-link to="/blog/tech">tech</router-link>
         </li>
         <!-- /.nav-items -->
-<!--        <li class="nav-items">-->
-<!--          <router-link to="/search">search</router-link>-->
-<!--        </li>-->
-        <!-- /.nav-items -->
         <li class="nav-items">
           <router-link to="/blog/business">BUSINESS</router-link>
         </li>
