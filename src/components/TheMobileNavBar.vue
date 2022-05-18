@@ -62,7 +62,6 @@ export default {
       this.statusMenu = true
     },
     eventMenu(event){
-      console.log(event.target)
       if(event.target.classList.contains('menu-link')){
         this.statusMenu = false
       }

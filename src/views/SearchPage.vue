@@ -34,20 +34,20 @@
           </div>
         </div>
         <!-- /.search-result -->
-        <div class="pagination" v-if="quantityResult">
-          <button class="pagination-prev btn-disable">&lsaquo;</button>
-          <a href="" class="pagination-link pagination-link__active">1</a>
-          <!-- /.pagination-link -->
-          <a href="" class="pagination-link">2</a>
-          <!-- /.pagination-link -->
-          <a href="" class="pagination-link">3</a>
-          <!-- /.pagination-link -->
-          <a href="" class="pagination-link">4</a>
-          <!-- /.pagination-link -->
-          <a href="" class="pagination-link">5</a>
-          <!-- /.pagination-link -->
-          <button class="pagination-next">&rsaquo;</button>
-        </div>
+<!--        <div class="pagination" v-if="quantityResult">-->
+<!--          <button class="pagination-prev btn-disable">&lsaquo;</button>-->
+<!--          <a href="" class="pagination-link pagination-link__active">1</a>-->
+<!--          &lt;!&ndash; /.pagination-link &ndash;&gt;-->
+<!--          <a href="" class="pagination-link">2</a>-->
+<!--          &lt;!&ndash; /.pagination-link &ndash;&gt;-->
+<!--          <a href="" class="pagination-link">3</a>-->
+<!--          &lt;!&ndash; /.pagination-link &ndash;&gt;-->
+<!--          <a href="" class="pagination-link">4</a>-->
+<!--          &lt;!&ndash; /.pagination-link &ndash;&gt;-->
+<!--          <a href="" class="pagination-link">5</a>-->
+<!--          &lt;!&ndash; /.pagination-link &ndash;&gt;-->
+<!--          <button class="pagination-next">&rsaquo;</button>-->
+<!--        </div>-->
         <!-- /.pagination -->
       </div>
       <!-- /.search-block -->
@@ -87,7 +87,7 @@ export default {
     '$route' (to){
       if(to.query.value){
         this.valueInput = to.query.value.split('+').join(' ')
-        console.log('watch= ', this.valueInput)
+        // console.log('watch= ', this.valueInput)
         this.searchPosts()
       }
     }
@@ -119,10 +119,24 @@ export default {
 
       this.postsResultInPage = arr
       console.log('Search... ');
-    }
+    },
+    // scrollEvent(){
+    //   const blog = document.querySelector('.blog-block')
+    //   if(blog){
+    //     //blog-card
+    //     console.log('blog- ', blog.clientHeight)
+    //   }
+    //   if(window.scrollY > 50){
+    //     // console.log('scroll- ', window.scrollY)
+    //   }
+    // },
+    // scroll(){
+    //   window.addEventListener('scroll', this.scrollEvent)
+    // }
   },
   mounted() {
     this.loadingPage()
+    this.scroll()
   }
 }
 </script>
